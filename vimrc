@@ -57,7 +57,7 @@ endfunction "}}}
 function! s:get_cache_dir(suffix) "{{{
     return resolve(expand(s:cache_dir . '/' . a:suffix))
 endfunction "}}}
-function! EnsureExists(path) "{{{
+function! s:ensure_exists(path) "{{{
     if !isdirectory(expand(a:path))
         call mkdir(expand(a:path))
     endif
@@ -75,14 +75,16 @@ noremap Q :close<CR>
 " Make Space key alias for Leader
 map <Space> <Leader>
 map <Leader>w 
+noremap <silent> <Leader>s :update<CR>
+noremap <Leader>S :saveas 
 noremap <Leader>W :write!<CR>
 " [t]oggle [k]eymap (in current buffer)
 nnoremap <Leader>tk :call <SID>toggle_keymap()<CR>
 " [r]reload [v]imrc
 nnoremap <Leader>rv :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>l :nohls<CR>:redraw!<CR>
-nnoremap <leader>q :Bdelete<CR>
-nnoremap <leader>Q :Bdelete<CR>:close<CR>
+nnoremap <silent> <leader>q :Bdelete<CR>
+nnoremap <silent> <leader>Q :Bdelete<CR>:close<CR>
 " }}}
 
 
@@ -119,7 +121,7 @@ let &shiftwidth=s:settings.default_indent           "number of spaces when inden
 let &showbreak='↪ '
 
 if has('unnamedplus')
-    set clipboard=unnamedplus                        "sync with OS clipboard
+    set clipboard=unnamedplus
 endif
 
 " vim file/folder management {{{
@@ -128,19 +130,18 @@ if exists('+undofile')
     set undofile
     let &undodir = s:get_cache_dir('undo')
 endif
-
 " backups
 set backup
 let &backupdir = s:get_cache_dir('backup')
-
 " swap files
 set swapfile
 let &directory = s:get_cache_dir('swap')
-
-call EnsureExists(s:cache_dir)
-call EnsureExists(&undodir)
-call EnsureExists(&backupdir)
-call EnsureExists(&directory)
+let &viminfo .= ",n" . s:get_cache_dir('viminfo')
+" create needed dirs, if not exists
+call s:ensure_exists(s:cache_dir)
+call s:ensure_exists(&undodir)
+call s:ensure_exists(&backupdir)
+call s:ensure_exists(&directory)
 "}}}
 " }}}
 
