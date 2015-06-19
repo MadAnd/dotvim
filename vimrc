@@ -47,11 +47,11 @@ function! s:toggle_keymap() "{{{
 	if &keymap==""
 		let &l:keymap=s:settings.alt_keymap
 		let &l:spelllang=s:settings.alt_spell_lang
-		echo 'Lang: UK'
+		echo 'Lang: ' . s:settings.alt_spell_lang
 	else
 		let &l:keymap=s:settings.main_keymap
 		let &l:spelllang=s:settings.main_spell_lang
-		echo 'Lang: EN'
+		echo 'Lang: ' . s:settings.main_spell_lang
 	endif
 endfunction "}}}
 function! s:get_cache_dir(suffix) "{{{
