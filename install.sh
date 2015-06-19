@@ -47,8 +47,6 @@ fi
 $GIT_CMD clone --recursive "$GIT_REPO" "$INSTALL_PATH"
 ln -sf "$INSTALL_PATH/vimrc" "$VIMRC"
 
-# housekeeping
-rm "$INSTALL_PATH/install.sh"
 
 # let Vundle install all other plugins
 $VIM_CMD +PluginInstall +qall
