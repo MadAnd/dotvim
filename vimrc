@@ -18,23 +18,23 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	" let Vundle manage Vundle, required
-  Plugin 'VundleVim/Vundle.vim'
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
 
-	" Additional plugins {{{
-	Plugin 'tpope/vim-sensible'
-	Plugin 'tpope/vim-repeat'
-	Plugin 'tpope/vim-unimpaired'
-	Plugin 'tpope/vim-commentary'
-	Plugin 'tpope/vim-surround'
-	Plugin 'justinmk/vim-sneak'
-	Plugin 'tmhedberg/matchit'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'moll/vim-bbye'
-	Plugin 'altercation/vim-colors-solarized'
-  Plugin 'airblade/vim-gitgutter'
-  " }}}
+    " Additional plugins {{{
+    Plugin 'tpope/vim-sensible'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-unimpaired'
+    Plugin 'tpope/vim-commentary'
+    Plugin 'tpope/vim-surround'
+    Plugin 'justinmk/vim-sneak'
+    Plugin 'tmhedberg/matchit'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'moll/vim-bbye'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'airblade/vim-gitgutter'
+" }}}
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -45,15 +45,15 @@ filetype plugin indent on
 
 " Functions {{{
 function! s:toggle_keymap() "{{{
-	if &keymap==""
-		let &l:keymap=s:settings.alt_keymap
-		let &l:spelllang=s:settings.alt_spell_lang
-		echo 'Lang: ' . s:settings.alt_spell_lang
-	else
-		let &l:keymap=s:settings.main_keymap
-		let &l:spelllang=s:settings.main_spell_lang
-		echo 'Lang: ' . s:settings.main_spell_lang
-	endif
+    if &keymap==""
+        let &l:keymap=s:settings.alt_keymap
+        let &l:spelllang=s:settings.alt_spell_lang
+        echo 'Lang: ' . s:settings.alt_spell_lang
+    else
+        let &l:keymap=s:settings.main_keymap
+        let &l:spelllang=s:settings.main_spell_lang
+        echo 'Lang: ' . s:settings.main_spell_lang
+    endif
 endfunction "}}}
 function! s:get_cache_dir(suffix) "{{{
     return resolve(expand(s:cache_dir . '/' . a:suffix))
