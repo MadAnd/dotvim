@@ -1,6 +1,6 @@
 .cache
-bundle/
-!bundle/Vundle.vim
+/bundle/*
+!/bundle/Vundle.vim
 
 # vim
 [._]*.s[a-w][a-z]
