@@ -29,11 +29,12 @@ call vundle#begin()
 	Plugin 'tpope/vim-surround'
 	Plugin 'justinmk/vim-sneak'
 	Plugin 'tmhedberg/matchit'
-	Plugin 'bling/vim-airline'
-	Plugin 'moll/vim-bbye'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'moll/vim-bbye'
 	Plugin 'altercation/vim-colors-solarized'
-    Plugin 'airblade/vim-gitgutter'
-	" }}}
+  Plugin 'airblade/vim-gitgutter'
+  " }}}
 
 " All of your Plugins must be added before the following line
 call vundle#end()
