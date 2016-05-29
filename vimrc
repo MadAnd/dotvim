@@ -120,6 +120,9 @@ let &softtabstop=s:settings.default_indent          "number of spaces per tab in
 let &shiftwidth=s:settings.default_indent           "number of spaces when indenting
 let &showbreak='↪ '
 
+set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 13
+set guioptions=ailt
+
 if has('unnamedplus')
     set clipboard=unnamedplus
 endif
