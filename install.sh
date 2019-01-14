@@ -51,7 +51,7 @@ elif [[ -d "$INSTALL_DIR" ]]; then
 fi
 
 # Install the config
-$GIT_CMD clone --recursive "$GIT_REPO" "$INSTALL_DIR"
+$GIT_CMD clone --recurse-submodules "$GIT_REPO" "$INSTALL_DIR"
 ln -sf "$INSTALL_DIR/vimrc" "$VIMRC"
 
 # Let Vundle install all the plugins
